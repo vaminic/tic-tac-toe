@@ -323,7 +323,6 @@ $(document).ready(function(){
 			$.post("aimove.php", {
 				data: gridData
 				}, function(response){ // Fetch php response
-					console.log(response);
 					var nextTile = response;
 					var turn = $("#turn-tracker").text();
 					if (turn == "O" && $(nextTile).attr("status") == "empty"){ // Confirm tile is empty and O's turn
