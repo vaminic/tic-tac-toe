@@ -1,0 +1,247 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	background-image: url("paper-texture-structure-stained-paper.jpg");
+	font-family: "Handodle";
+}
+#banner {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+#main {
+	width: 95vw;
+	min-width: min(100vw,420px);
+	margin: auto;
+	padding-top: 5vh;
+	text-align:center;
+}
+#scoreboard {
+	box-sizing: border-box;
+	display: inline-block;
+	width: 31vw;
+	padding-bottom: 5vh;
+	padding-right: 5vw;;
+	min-width: min(100vw,420px);
+	vertical-align: top;
+	font-family: "Handodle";
+	font-size: max(2vw,2vh,16px);
+	text-align: left;
+}
+#scoreboard input{
+	background-color: transparent;
+	font-family: "Handodle";
+	font-size: max(2vw,2vh,16px);
+	border-width: 0px 0px 2px 0px;
+	width: 50%;
+}
+#grid-container {
+	display: inline-block;
+	width: 32vw;
+	min-width: min(100vw,420px);
+	text-align: center;
+	vertical-align: top;
+}
+#grid {
+	display: inline-block;
+	width: 30vw;
+	min-width: min(100vw,420px);
+	text-align: center;
+	background-image: url("animations/grid-draw-animation/tttgrid.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#grid .row {
+	width: 100%;
+	height: 10vw;
+	min-height: min(33vw,140px);
+	white-space: nowrap;
+	font-size: 0px;
+}
+#grid .tile{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 10vw;
+	min-width: min(33vw,140px);
+	height: 10vw;
+	min-height: min(33vw,140px);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+#grid .preview-x{
+	background-image: url("animations/x-draw-animation/x.png");
+	opacity: 25%;
+}
+#grid .x{
+	animation: draw-x 350ms linear forwards;
+	opacity: 100%;
+}
+#grid .preview-o{
+	background-image: url("animations/o-draw-animation/o.png");
+	opacity: 25%;
+}
+#grid .o{
+	animation: draw-o 350ms linear forwards;
+	opacity: 100%;
+}
+#infobar {
+	text-align: center;
+	font-size: max(2vw,2vh,12px);
+}
+#settings{
+	box-sizing: border-box;
+	display: inline-block;
+	width: 31vw;
+	min-width: min(100vw,420px);
+	vertical-align: top;
+	font-size: max(1.5vw,1.5vh,12px);
+	text-align: left;
+	padding-left: 5%;
+}
+#settings .hovered{
+	border-style: solid;
+	border-width: 0px 0px 2px 0px;
+}
+#settings .selected{
+	border-style: solid;
+}
+#settings .game-mode-option{
+	box-sizing: border-box;
+	cursor: pointer;
+}
+#settings .first-move-option{
+	box-sizing: border-box;
+	cursor: pointer;
+}
+h1 {
+	margin-top: 0px;
+	font-size: max(4vh,4vw);
+	color: #404040;
+}
+h2 {
+	margin: 0px;
+	font-size: max(3vh,3vw);
+	text-decoration: underline;
+	color: #505050;
+}
+#reset-button{
+	text-align: center;
+	font-size: max(2vw,2vh,12px);
+	font-family: "Handodle";
+	background-color: transparent;
+	cursor: pointer;
+}
+@font-face {
+	font-family: 'Handodle';
+	src:  url('Handodle-rg38A.ttf');
+}
+
+@keyframes draw-grid {
+	0% {background-image: url("animations/grid-draw-animation/draw-grid-f1.png")}
+	1.6% {background-image: url("animations/grid-draw-animation/draw-grid-f2.png")}
+	3.2% {background-image: url("animations/grid-draw-animation/draw-grid-f3.png")}
+	4.8% {background-image: url("animations/grid-draw-animation/draw-grid-f4.png")}
+	6.4% {background-image: url("animations/grid-draw-animation/draw-grid-f5.png")}
+	8% {background-image: url("animations/grid-draw-animation/draw-grid-f6.png")}
+	9.6% {background-image: url("animations/grid-draw-animation/draw-grid-f7.png")}
+	11.2% {background-image: url("animations/grid-draw-animation/draw-grid-f8.png")}
+	12.8% {background-image: url("animations/grid-draw-animation/draw-grid-f9.png")}
+	14.4% {background-image: url("animations/grid-draw-animation/draw-grid-f10.png")}
+	16% {background-image: url("animations/grid-draw-animation/draw-grid-f11.png")}
+	17.6% {background-image: url("animations/grid-draw-animation/draw-grid-f12.png")}
+	19.2% {background-image: url("animations/grid-draw-animation/draw-grid-f13.png")}
+	20.8% {background-image: url("animations/grid-draw-animation/draw-grid-f14.png")}
+	22.4% {background-image: url("animations/grid-draw-animation/draw-grid-f15.png")}
+	24% {background-image: url("animations/grid-draw-animation/draw-grid-f16.png")}
+	25.6% {background-image: url("animations/grid-draw-animation/draw-grid-f17.png")}
+	27.2% {background-image: url("animations/grid-draw-animation/draw-grid-f18.png")}
+	28.8% {background-image: url("animations/grid-draw-animation/draw-grid-f19.png")}
+	30.4% {background-image: url("animations/grid-draw-animation/draw-grid-f20.png")}
+	32% {background-image: url("animations/grid-draw-animation/draw-grid-f21.png")}
+	33.6% {background-image: url("animations/grid-draw-animation/draw-grid-f22.png")}
+	35.2% {background-image: url("animations/grid-draw-animation/draw-grid-f23.png")}
+	36.8% {background-image: url("animations/grid-draw-animation/draw-grid-f24.png")}
+	38.4% {background-image: url("animations/grid-draw-animation/draw-grid-f25.png")}
+	40% {background-image: url("animations/grid-draw-animation/draw-grid-f26.png")}
+	41.6% {background-image: url("animations/grid-draw-animation/draw-grid-f27.png")}
+	43.2% {background-image: url("animations/grid-draw-animation/draw-grid-f28.png")}
+	44.8% {background-image: url("animations/grid-draw-animation/draw-grid-f29.png")}
+	46.4% {background-image: url("animations/grid-draw-animation/draw-grid-f30.png")}
+	48% {background-image: url("animations/grid-draw-animation/draw-grid-f31.png")}
+	49.6% {background-image: url("animations/grid-draw-animation/draw-grid-f32.png")}
+	51.2% {background-image: url("animations/grid-draw-animation/draw-grid-f33.png")}
+	52.8% {background-image: url("animations/grid-draw-animation/draw-grid-f34.png")}
+	54.4% {background-image: url("animations/grid-draw-animation/draw-grid-f35.png")}
+	56% {background-image: url("animations/grid-draw-animation/draw-grid-f36.png")}
+	57.6% {background-image: url("animations/grid-draw-animation/draw-grid-f37.png")}
+	59.2% {background-image: url("animations/grid-draw-animation/draw-grid-f38.png")}
+	60.8% {background-image: url("animations/grid-draw-animation/draw-grid-f39.png")}
+	62.4% {background-image: url("animations/grid-draw-animation/draw-grid-f40.png")}
+	64% {background-image: url("animations/grid-draw-animation/draw-grid-f41.png")}
+	65.6% {background-image: url("animations/grid-draw-animation/draw-grid-f42.png")}
+	67.2% {background-image: url("animations/grid-draw-animation/draw-grid-f43.png")}
+	68.8% {background-image: url("animations/grid-draw-animation/draw-grid-f44.png")}
+	70.4% {background-image: url("animations/grid-draw-animation/draw-grid-f45.png")}
+	72% {background-image: url("animations/grid-draw-animation/draw-grid-f46.png")}
+	73.6% {background-image: url("animations/grid-draw-animation/draw-grid-f47.png")}
+	75.2% {background-image: url("animations/grid-draw-animation/draw-grid-f48.png")}
+	76.8% {background-image: url("animations/grid-draw-animation/draw-grid-f49.png")}
+	78.4% {background-image: url("animations/grid-draw-animation/draw-grid-f50.png")}
+	80% {background-image: url("animations/grid-draw-animation/draw-grid-f51.png")}
+	81.6% {background-image: url("animations/grid-draw-animation/draw-grid-f52.png")}
+	83.2% {background-image: url("animations/grid-draw-animation/draw-grid-f53.png")}
+	84.8% {background-image: url("animations/grid-draw-animation/draw-grid-f54.png")}
+	86.4% {background-image: url("animations/grid-draw-animation/draw-grid-f55.png")}
+	88% {background-image: url("animations/grid-draw-animation/draw-grid-f56.png")}
+	89.6% {background-image: url("animations/grid-draw-animation/draw-grid-f57.png")}
+	91.2% {background-image: url("animations/grid-draw-animation/draw-grid-f58.png")}
+	92.8% {background-image: url("animations/grid-draw-animation/draw-grid-f59.png")}
+	94.4% {background-image: url("animations/grid-draw-animation/draw-grid-f60.png")}
+	100% {background-image: url("animations/grid-draw-animation/tttgrid.png")}
+}
+
+@keyframes draw-x {
+	0% {background-image: url("animations/x-draw-animation/x-draw-1.png")}
+	6.66% {background-image: url("animations/x-draw-animation/x-draw-2.png")}
+	13.32% {background-image: url("animations/x-draw-animation/x-draw-3.png")}
+	19.98% {background-image: url("animations/x-draw-animation/x-draw-4.png")}
+	26.64% {background-image: url("animations/x-draw-animation/x-draw-5.png")}
+	33.33% {background-image: url("animations/x-draw-animation/x-draw-6.png")}
+	39.96% {background-image: url("animations/x-draw-animation/x-draw-7.png")}
+	46.62% {background-image: url("animations/x-draw-animation/x-draw-8.png")}
+	53.28% {background-image: url("animations/x-draw-animation/x-draw-9.png")}
+	59.94% {background-image: url("animations/x-draw-animation/x-draw-10.png")}
+	66.66% {background-image: url("animations/x-draw-animation/x-draw-11.png")}
+	73.26% {background-image: url("animations/x-draw-animation/x-draw-12.png")}
+	79.92% {background-image: url("animations/x-draw-animation/x-draw-13.png")}
+	86.58% {background-image: url("animations/x-draw-animation/x-draw-14.png")}
+	93.24% {background-image: url("animations/x-draw-animation/x-draw-15.png")}
+	100% {background-image: url("animations/x-draw-animation/x.png")}
+}
+
+@keyframes draw-o {
+	0% {background-image: url("animations/o-draw-animation/o-draw-1.png")}
+	6.66% {background-image: url("animations/o-draw-animation/o-draw-2.png")}
+	13.32% {background-image: url("animations/o-draw-animation/o-draw-3.png")}
+	19.98% {background-image: url("animations/o-draw-animation/o-draw-4.png")}
+	26.64% {background-image: url("animations/o-draw-animation/o-draw-5.png")}
+	33.33% {background-image: url("animations/o-draw-animation/o-draw-6.png")}
+	39.96% {background-image: url("animations/o-draw-animation/o-draw-7.png")}
+	46.62% {background-image: url("animations/o-draw-animation/o-draw-8.png")}
+	53.28% {background-image: url("animations/o-draw-animation/o-draw-9.png")}
+	59.94% {background-image: url("animations/o-draw-animation/o-draw-10.png")}
+	66.66% {background-image: url("animations/o-draw-animation/o-draw-11.png")}
+	73.26% {background-image: url("animations/o-draw-animation/o-draw-12.png")}
+	79.92% {background-image: url("animations/o-draw-animation/o-draw-13.png")}
+	86.58% {background-image: url("animations/o-draw-animation/o-draw-14.png")}
+	93.24% {background-image: url("animations/o-draw-animation/o-draw-15.png")}
+	100% {background-image: url("animations/o-draw-animation/o.png")}
+}
+
+@keyframes erase{
+	from {opacity: 100%}
+	to {opacity : 0%}
+}
