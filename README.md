@@ -25,4 +25,5 @@ The "animations" directory contain all animations.<br>
 This contains subdirectories, containing image files that serve as frames, for each animation.<br>
 <br>
 All images used in this project are strictly my own works or under Creative Commons Licenses.<br>
+Background image used (*paper-texture-structure-stained-paper.jpg*) is under Creative Commons License.<br>
 Big thanks to <a href="https://putracetol.com/">PutraCetol Studio</a> for providing <a href=https://www.dafont.com/handodle.font>Handodle Font</a>.
