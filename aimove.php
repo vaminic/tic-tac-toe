@@ -2,7 +2,30 @@
 
 	$gridData = $_POST["data"];
 	
-	if ($gridData[4] == "empty"){
+	if ($gridData[0] == "empty" && $gridData[1] == "empty" 
+		&& $gridData[2] == "empty" && $gridData[3] == "empty" 
+		&& $gridData[4] == "empty" && $gridData[5] == "empty" 
+		&& $gridData[6] == "empty" && $gridData[7] == "empty" 
+		&& $gridData[8] == "empty"){
+		$firstMove = rand(0,4);
+		switch ($firstMove){
+			case 0:
+				echo "#tile1";
+				break;
+			case 1:
+				echo "#tile3";
+				break;
+			case 2:
+				echo "#tile7";
+				break;
+			case 3:
+				echo "#tile9";
+				break;
+			case 4:
+				echo "#tile5";
+				break;
+		}
+	}elseif ($gridData[4] == "empty"){
 		$winMove = checkPerimeterForWin();
 		$block = checkPerimeterForThreat();
 		if (isset($winMove)){
@@ -38,116 +61,191 @@
 			if (isset($block)){
 				echo $block;
 			} else {
-				// Prefer Moves where a Fork can be made:
-				if ($gridData[7] == "empty" && $gridData[1] == "empty"
-					&& (($gridData[6] == "O" && $gridData[8] == "empty") || ($gridData[6] == "empty" && $gridData[8] == "O"))){
-					echo "#tile8";
-				} elseif ($gridData[5] == "empty" && $gridData[3] == "empty"
-					&& (($gridData[2] == "O" && $gridData[8] == "empty") || ($gridData[2] == "empty" && $gridData[8] == "O"))){
-					echo "#tile6";
-				} elseif ($gridData[3] == "empty" && $gridData[5] == "empty"
-					&& (($gridData[0] == "O" && $gridData[6] == "empty") || ($gridData[0] == "empty" && $gridData[6] == "O"))){
-					echo "#tile4";
-				} elseif ($gridData[1] == "empty" && $gridData[7] == "empty"
-					&& (($gridData[0] == "O" && $gridData[2] == "empty") || ($gridData[0] == "empty" && $gridData[2] == "O"))){
-					echo "#tile2";
+				//Block X from creating an L fork:
+				if (($gridData[0] == "X" && $gridData[8] == "X" 
+					&& (($gridData[1] == "empty" && $gridData[2] == "empty" && $gridData[5] == "empty")
+					|| ($gridData[3] == "empty" && $gridData[6] == "empty" && $gridData[7] == "empty")))
+					||
+					($gridData[2] == "X" && $gridData[6] == "X" 
+					&& (($gridData[0] == "empty" && $gridData[1] == "empty" && $gridData[3] == "empty")
+					|| ($gridData[5] == "empty" && $gridData[7] == "empty" && $gridData[8] == "empty"))))
+					{
+					$r = rand(0,3);
+					switch ($r){
+						case 0:
+							echo "#tile2";
+							break;
+						case 1:
+							echo "#tile4";
+							break;
+						case 2:
+							echo "#tile6";
+							break;
+						case 3:
+							echo "#tile8";
+							break;
+					}
 				} elseif ($gridData[0] == "empty" 
-					&& $gridData[8] == "empty"
-					&& ((($gridData[1] == "O" && $gridData[2] == "empty") || ($gridData[1] == "empty" && $gridData[2] == "O")) 
-					|| (($gridData[3] == "O" && $gridData[6] == "empty") || ($gridData[3] == "empty" && $gridData[6] == "O"))))
-					{
+						&& (($gridData[1] == "X" && $gridData[2] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[2] == "X"))
+						&& (($gridData[3] == "X" && $gridData[6] == "empty")
+						|| ($gridData[3] == "empty" && $gridData[6] == "X")))
+						{
 					echo "#tile1";
 				} elseif ($gridData[2] == "empty" 
-					&& $gridData[6] == "empty"
-					&& ((($gridData[1] == "O" && $gridData[0] == "empty") || ($gridData[1] == "empty" && $gridData[0] == "O")) 
-					|| (($gridData[5] == "O" && $gridData[8] == "empty") || ($gridData[5] == "empty" && $gridData[8] == "O"))))
-					{
+						&& (($gridData[0] == "X" && $gridData[1] == "empty")
+						|| ($gridData[0] == "empty" && $gridData[1] == "X"))
+						&& (($gridData[5] == "X" && $gridData[8] == "empty")
+						|| ($gridData[5] == "empty" && $gridData[8] == "X")))
+						{
 					echo "#tile3";
 				} elseif ($gridData[6] == "empty" 
-					&& $gridData[2] == "empty"
-					&& ((($gridData[7] == "O" && $gridData[8] == "empty") || ($gridData[7] == "empty" && $gridData[8] == "O")) 
-					|| (($gridData[0] == "O" && $gridData[3] == "empty") || ($gridData[0] == "empty" && $gridData[3] == "O"))))
-					{
-					echo "#tile3";
-				} elseif ($gridData[8] == "empty" 
-					&& $gridData[0] == "empty"
-					&& ((($gridData[6] == "O" && $gridData[7] == "empty") || ($gridData[6] == "empty" && $gridData[7] == "O")) 
-					|| (($gridData[2] == "O" && $gridData[5] == "empty") || ($gridData[2] == "empty" && $gridData[5] == "O"))))
-					{
-					echo "#tile3";
-				}elseif ($gridData[0] == "empty" 
-					&& (($gridData[1] == "O" && $gridData[2] == "empty") || ($gridData[1] == "empty" && $gridData[2] == "O")) 
-					&& (($gridData[3] == "O" && $gridData[6] == "empty") || ($gridData[3] == "empty" && $gridData[6] == "O")))
-					{
-					echo "#tile1";
-				} elseif ($gridData[2] == "empty" 
-					&& (($gridData[1] == "O" && $gridData[0] == "empty") || ($gridData[1] == "empty" && $gridData[0] == "O")) 
-					&& (($gridData[5] == "O" && $gridData[8] == "empty") || ($gridData[5] == "empty" && $gridData[8] == "O")))
-					{
-					echo "#tile3";
-				} elseif ($gridData[6] == "empty" 
-					&& (($gridData[7] == "O" && $gridData[8] == "empty") || ($gridData[7] == "empty" && $gridData[8] == "O")) 
-					&& (($gridData[0] == "O" && $gridData[3] == "empty") || ($gridData[0] == "empty" && $gridData[3] == "O")))
-					{
+						&& (($gridData[0] == "X" && $gridData[3] == "empty")
+						|| ($gridData[0] == "empty" && $gridData[3] == "X"))
+						&& (($gridData[7] == "X" && $gridData[8] == "empty")
+						|| ($gridData[7] == "empty" && $gridData[8] == "X")))
+						{
 					echo "#tile7";
 				} elseif ($gridData[8] == "empty" 
-					&& (($gridData[6] == "O" && $gridData[7] == "empty") || ($gridData[6] == "empty" && $gridData[7] == "O")) 
-					&& (($gridData[2] == "O" && $gridData[5] == "empty") || ($gridData[2] == "empty" && $gridData[5] == "O")))
-					{
+						&& (($gridData[2] == "X" && $gridData[5] == "empty")
+						|| ($gridData[2] == "empty" && $gridData[5] == "X"))
+						&& (($gridData[6] == "X" && $gridData[7] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[7] == "X")))
+						{
+					echo "#tile9";
+				// Prefer Moves where a Fork can be made:
+				}elseif ($gridData[7] == "empty" && $gridData[1] == "empty"
+						&& (($gridData[6] == "O" && $gridData[8] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[8] == "O")))
+						{
+					echo "#tile8";
+				} elseif ($gridData[5] == "empty" && $gridData[3] == "empty"
+						&& (($gridData[2] == "O" && $gridData[8] == "empty")
+						|| ($gridData[2] == "empty" && $gridData[8] == "O")))
+						{
+					echo "#tile6";
+				} elseif ($gridData[3] == "empty" && $gridData[5] == "empty"
+						&& (($gridData[0] == "O" && $gridData[6] == "empty")
+						|| ($gridData[0] == "empty" && $gridData[6] == "O"))){
+					echo "#tile4";
+				} elseif ($gridData[1] == "empty" && $gridData[7] == "empty"
+						&& (($gridData[0] == "O" && $gridData[2] == "empty")
+						|| ($gridData[0] == "empty" && $gridData[2] == "O")))
+						{
+					echo "#tile2";
+				} elseif ($gridData[0] == "empty" 
+						&& $gridData[8] == "empty"
+						&& ((($gridData[1] == "O" && $gridData[2] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[2] == "O")) 
+						|| (($gridData[3] == "O" && $gridData[6] == "empty")
+						|| ($gridData[3] == "empty" && $gridData[6] == "O"))))
+						{
+					echo "#tile1";
+				} elseif ($gridData[2] == "empty" 
+						&& $gridData[6] == "empty"
+						&& ((($gridData[1] == "O" && $gridData[0] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[0] == "O"))
+						|| (($gridData[5] == "O" && $gridData[8] == "empty")
+						|| ($gridData[5] == "empty" && $gridData[8] == "O"))))
+						{
+					echo "#tile3";
+				} elseif ($gridData[6] == "empty" 
+						&& $gridData[2] == "empty"
+						&& ((($gridData[7] == "O" && $gridData[8] == "empty")
+						|| ($gridData[7] == "empty" && $gridData[8] == "O"))
+						|| (($gridData[0] == "O" && $gridData[3] == "empty")
+						|| ($gridData[0] == "empty" && $gridData[3] == "O"))))
+						{
+					echo "#tile3";
+				} elseif ($gridData[8] == "empty" 
+						&& $gridData[0] == "empty"
+						&& ((($gridData[6] == "O" && $gridData[7] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[7] == "O"))
+						|| (($gridData[2] == "O" && $gridData[5] == "empty")
+						|| ($gridData[2] == "empty" && $gridData[5] == "O"))))
+						{
+					echo "#tile3";
+				}elseif ($gridData[0] == "empty" 
+						&& (($gridData[1] == "O" && $gridData[2] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[2] == "O"))
+						&& (($gridData[3] == "O" && $gridData[6] == "empty")
+						|| ($gridData[3] == "empty" && $gridData[6] == "O")))
+						{
+					echo "#tile1";
+				} elseif ($gridData[2] == "empty" 
+						&& (($gridData[1] == "O" && $gridData[0] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[0] == "O"))
+						&& (($gridData[5] == "O" && $gridData[8] == "empty")
+						|| ($gridData[5] == "empty" && $gridData[8] == "O")))
+						{
+					echo "#tile3";
+				} elseif ($gridData[6] == "empty" 
+						&& (($gridData[7] == "O" && $gridData[8] == "empty")
+						|| ($gridData[7] == "empty" && $gridData[8] == "O"))
+						&& (($gridData[0] == "O" && $gridData[3] == "empty")
+						|| ($gridData[0] == "empty" && $gridData[3] == "O")))
+						{
+					echo "#tile7";
+				} elseif ($gridData[8] == "empty" 
+						&& (($gridData[6] == "O" && $gridData[7] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[7] == "O"))
+						&& (($gridData[2] == "O" && $gridData[5] == "empty")
+						|| ($gridData[2] == "empty" && $gridData[5] == "O")))
+						{
 					echo "#tile9";
 				// Moves with no fork but create potential winning scenarios:
 				} elseif ($gridData[0] == "empty" 
-					&& (($gridData[1] == "O" && $gridData[2] == "empty") 
-					|| ($gridData[1] == "empty" && $gridData[2] == "O")
-					|| ($gridData[3] == "O" && $gridData[6] == "empty")
-					|| ($gridData[3] == "empty" && $gridData[6] == "O")
-					|| $gridData[8] == "empty"))
-					{
+						&& (($gridData[1] == "O" && $gridData[2] == "empty") 
+						|| ($gridData[1] == "empty" && $gridData[2] == "O")
+						|| ($gridData[3] == "O" && $gridData[6] == "empty")
+						|| ($gridData[3] == "empty" && $gridData[6] == "O")
+						|| $gridData[8] == "empty"))
+						{
 					echo "#tile1";
 				} elseif ($gridData[2] == "empty" 
-					&& (($gridData[1] == "O" && $gridData[0] == "empty")
-					|| ($gridData[1] == "empty" && $gridData[0] == "O")
-					|| ($gridData[5] == "O" && $gridData[8] == "empty")
-					|| ($gridData[5] == "empty" && $gridData[8] == "O")
-					|| $gridData[6] == "empty"))
-					{
+						&& (($gridData[1] == "O" && $gridData[0] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[0] == "O")
+						|| ($gridData[5] == "O" && $gridData[8] == "empty")
+						|| ($gridData[5] == "empty" && $gridData[8] == "O")
+						|| $gridData[6] == "empty"))
+						{
 					echo "#tile3";
 				} elseif ($gridData[6] == "empty" 
-					&& (($gridData[7] == "O" && $gridData[8] == "empty") 
-					|| ($gridData[7] == "empty" && $gridData[8] == "O")
-					|| ($gridData[0] == "O" && $gridData[3] == "empty") 
-					|| ($gridData[0] == "empty" && $gridData[3] == "O")
-					|| $gridData[2] == "empty"))
-					{
+						&& (($gridData[7] == "O" && $gridData[8] == "empty") 
+						|| ($gridData[7] == "empty" && $gridData[8] == "O")
+						|| ($gridData[0] == "O" && $gridData[3] == "empty") 
+						|| ($gridData[0] == "empty" && $gridData[3] == "O")
+						|| $gridData[2] == "empty"))
+						{
 					echo "#tile7";
 				} elseif ($gridData[8] == "empty" 
-					&& (($gridData[6] == "O" && $gridData[7] == "empty")
-					|| ($gridData[6] == "empty" && $gridData[7] == "O")
-					|| ($gridData[2] == "O" && $gridData[5] == "empty")
-					|| ($gridData[2] == "empty" && $gridData[5] == "O")
-					|| $gridData[0] == "empty"))
-					{
+						&& (($gridData[6] == "O" && $gridData[7] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[7] == "O")
+						|| ($gridData[2] == "O" && $gridData[5] == "empty")
+						|| ($gridData[2] == "empty" && $gridData[5] == "O")
+						|| $gridData[0] == "empty"))
+						{
 					echo "#tile9";
 				//Prioritize Corners
 				} elseif ($gridData[0] == "empty" 
-					&& (($gridData[1] == "empty" && $gridData[2] == "empty") 
-					|| ($gridData[1] == "empty" && $gridData[2] == "empty")))
-					{
+						&& (($gridData[1] == "empty" && $gridData[2] == "empty") 
+						|| ($gridData[1] == "empty" && $gridData[2] == "empty")))
+						{
 					echo "#tile1";
 				} elseif ($gridData[2] == "empty" 
-					&& (($gridData[1] == "empty" && $gridData[0] == "empty")
-					|| ($gridData[1] == "empty" && $gridData[0] == "empty")))
-					{
+						&& (($gridData[1] == "empty" && $gridData[0] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[0] == "empty")))
+						{
 					echo "#tile3";
 				} elseif ($gridData[6] == "empty" 
-					&& (($gridData[7] == "empty" && $gridData[8] == "empty") 
-					|| ($gridData[7] == "empty" && $gridData[8] == "empty")))
-					{
+						&& (($gridData[7] == "empty" && $gridData[8] == "empty")
+						|| ($gridData[7] == "empty" && $gridData[8] == "empty")))
+						{
 					echo "#tile7";
 				} elseif ($gridData[8] == "empty" 
-					&& (($gridData[6] == "empty" && $gridData[7] == "empty")
-					|| ($gridData[6] == "empty" && $gridData[7] == "empty")))
-					{
+						&& (($gridData[6] == "empty" && $gridData[7] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[7] == "empty")))
+						{
 					echo "#tile9";
 				} elseif ($gridData[7] == "empty" && $gridData[1] == "empty"){
 					echo "#tile8";
@@ -204,75 +302,103 @@
 				echo $block;
 			} else {
 				// Prefer Moves where a Fork can be made:
-				if ($gridData[0] == "empty" 
-					&& (($gridData[1] == "O" && $gridData[2] == "empty") || ($gridData[1] == "empty" && $gridData[2] == "O")) 
-					&& (($gridData[3] == "O" && $gridData[6] == "empty") || ($gridData[3] == "empty" && $gridData[6] == "O")))
+				if ($gridData[0] == "O" && $gridData[8] == "empty"
+					&& (($gridData[1] == "empty" && $gridData[2] == "empty" && $gridData[5] == "empty")
+					|| ($gridData[3] == "empty" && $gridData[6] == "empty" && $gridData[7] == "empty")))
 					{
+					echo "#tile9";
+				} elseif ($gridData[8] == "O" && $gridData[0] == "empty"
+						&& (($gridData[1] == "empty" && $gridData[2] == "empty" && $gridData[5] == "empty")
+						|| ($gridData[3] == "empty" && $gridData[6] == "empty" && $gridData[7] == "empty")))
+						{
+					echo "#tile1";
+				} elseif ($gridData[2] == "O" && $gridData[6] == "empty"
+						&& (($gridData[1] == "empty" && $gridData[0] == "empty" && $gridData[3] == "empty")
+						|| ($gridData[5] == "empty" && $gridData[8] == "empty" && $gridData[7] == "empty")))
+						{
+					echo "#tile7";
+				} elseif ($gridData[6] == "O" && $gridData[2] == "empty"
+						&& (($gridData[1] == "empty" && $gridData[0] == "empty" && $gridData[3] == "empty")
+						|| ($gridData[5] == "empty" && $gridData[8] == "empty" && $gridData[7] == "empty")))
+						{
+					echo "#tile3";
+				} elseif ($gridData[0] == "empty" 
+						&& (($gridData[1] == "O" && $gridData[2] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[2] == "O"))
+						&& (($gridData[3] == "O" && $gridData[6] == "empty")
+						|| ($gridData[3] == "empty" && $gridData[6] == "O")))
+						{
 					echo "#tile1";
 				} elseif ($gridData[2] == "empty" 
-					&& (($gridData[1] == "O" && $gridData[0] == "empty") || ($gridData[1] == "empty" && $gridData[0] == "O")) 
-					&& (($gridData[5] == "O" && $gridData[8] == "empty") || ($gridData[5] == "empty" && $gridData[8] == "O")))
-					{
+						&& (($gridData[1] == "O" && $gridData[0] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[0] == "O")) 
+						&& (($gridData[5] == "O" && $gridData[8] == "empty")
+						|| ($gridData[5] == "empty" && $gridData[8] == "O")))
+						{
 					echo "#tile3";
 				} elseif ($gridData[6] == "empty" 
-					&& (($gridData[7] == "O" && $gridData[8] == "empty") || ($gridData[7] == "empty" && $gridData[8] == "O")) 
-					&& (($gridData[0] == "O" && $gridData[3] == "empty") || ($gridData[0] == "empty" && $gridData[3] == "O")))
-					{
+						&& (($gridData[7] == "O" && $gridData[8] == "empty")
+						|| ($gridData[7] == "empty" && $gridData[8] == "O")) 
+						&& (($gridData[0] == "O" && $gridData[3] == "empty")
+						|| ($gridData[0] == "empty" && $gridData[3] == "O")))
+						{
 					echo "#tile7";
 				} elseif ($gridData[8] == "empty" 
-					&& (($gridData[6] == "O" && $gridData[7] == "empty") || ($gridData[6] == "empty" && $gridData[7] == "O")) 
-					&& (($gridData[2] == "O" && $gridData[5] == "empty") || ($gridData[2] == "empty" && $gridData[5] == "O")))
-					{
+						&& (($gridData[6] == "O" && $gridData[7] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[7] == "O")) 
+						&& (($gridData[2] == "O" && $gridData[5] == "empty")
+						|| ($gridData[2] == "empty" && $gridData[5] == "O")))
+						{
 					echo "#tile9";
 				// Moves with no fork but creates potential winning scenarios:
 				} elseif ($gridData[0] == "empty" 
-					&& (($gridData[1] == "O" && $gridData[2] == "empty") 
-					|| ($gridData[1] == "empty" && $gridData[2] == "O")
-					|| ($gridData[3] == "O" && $gridData[6] == "empty")
-					|| ($gridData[3] == "empty" && $gridData[6] == "O")))
-					{
+						&& (($gridData[1] == "O" && $gridData[2] == "empty") 
+						|| ($gridData[1] == "empty" && $gridData[2] == "O")
+						|| ($gridData[3] == "O" && $gridData[6] == "empty")
+						|| ($gridData[3] == "empty" && $gridData[6] == "O")))
+						{
 					echo "#tile1";
 				} elseif ($gridData[2] == "empty" 
-					&& (($gridData[1] == "O" && $gridData[0] == "empty")
-					|| ($gridData[1] == "empty" && $gridData[0] == "O")
-					|| ($gridData[5] == "O" && $gridData[8] == "empty")
-					|| ($gridData[5] == "empty" && $gridData[8] == "O")))
-					{
+						&& (($gridData[1] == "O" && $gridData[0] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[0] == "O")
+						|| ($gridData[5] == "O" && $gridData[8] == "empty")
+						|| ($gridData[5] == "empty" && $gridData[8] == "O")))
+						{
 					echo "#tile3";
 				} elseif ($gridData[6] == "empty" 
-					&& (($gridData[7] == "O" && $gridData[8] == "empty") 
-					|| ($gridData[7] == "empty" && $gridData[8] == "O")
-					|| ($gridData[0] == "O" && $gridData[3] == "empty") 
-					|| ($gridData[0] == "empty" && $gridData[3] == "O")))
-					{
+						&& (($gridData[7] == "O" && $gridData[8] == "empty") 
+						|| ($gridData[7] == "empty" && $gridData[8] == "O")
+						|| ($gridData[0] == "O" && $gridData[3] == "empty") 
+						|| ($gridData[0] == "empty" && $gridData[3] == "O")))
+						{
 					echo "#tile7";
 				} elseif ($gridData[8] == "empty" 
-					&& (($gridData[6] == "O" && $gridData[7] == "empty")
-					|| ($gridData[6] == "empty" && $gridData[7] == "O")
-					|| ($gridData[2] == "O" && $gridData[5] == "empty")
-					|| ($gridData[2] == "empty" && $gridData[5] == "O")))
-					{
+						&& (($gridData[6] == "O" && $gridData[7] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[7] == "O")
+						|| ($gridData[2] == "O" && $gridData[5] == "empty")
+						|| ($gridData[2] == "empty" && $gridData[5] == "O")))
+						{
 					echo "#tile9";
 				//Prioritize Corners
 				} elseif ($gridData[0] == "empty" 
-					&& (($gridData[1] == "empty" && $gridData[2] == "empty") 
-					|| ($gridData[1] == "empty" && $gridData[2] == "empty")))
-					{
+						&& (($gridData[1] == "empty" && $gridData[2] == "empty") 
+						|| ($gridData[1] == "empty" && $gridData[2] == "empty")))
+						{
 					echo "#tile1";
 				} elseif ($gridData[2] == "empty" 
-					&& (($gridData[1] == "empty" && $gridData[0] == "empty")
-					|| ($gridData[1] == "empty" && $gridData[0] == "empty")))
-					{
+						&& (($gridData[1] == "empty" && $gridData[0] == "empty")
+						|| ($gridData[1] == "empty" && $gridData[0] == "empty")))
+						{
 					echo "#tile3";
 				} elseif ($gridData[6] == "empty" 
-					&& (($gridData[7] == "empty" && $gridData[8] == "empty") 
-					|| ($gridData[7] == "empty" && $gridData[8] == "empty")))
-					{
+						&& (($gridData[7] == "empty" && $gridData[8] == "empty") 
+						|| ($gridData[7] == "empty" && $gridData[8] == "empty")))
+						{
 					echo "#tile7";
 				} elseif ($gridData[8] == "empty" 
-					&& (($gridData[6] == "empty" && $gridData[7] == "empty")
-					|| ($gridData[6] == "empty" && $gridData[7] == "empty")))
-					{
+						&& (($gridData[6] == "empty" && $gridData[7] == "empty")
+						|| ($gridData[6] == "empty" && $gridData[7] == "empty")))
+						{
 					echo "#tile9";
 				} else {
 					// Random move:
