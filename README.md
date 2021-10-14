@@ -10,7 +10,7 @@ This is a MindGeeks 2021 PHP Coding Challenge Submission
 
 
 ### Index File
-The default pageis is named *index.php*. This is the main page of this project.<br>
+The default page is named *index.php*. This is the main page of this project.<br>
 This is viewable when served by a web server that supports PHP.<br>
 All CSS used is in *styles.css*. This also contains font information and animations.<br>
 All JavaScript used is in *tic-tac-toe-script.js* and requires jQuery. This handles mouse events and calls AI with AJAX.<br>
