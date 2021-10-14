@@ -17,7 +17,8 @@ All JavaScript used is in *tic-tac-toe-script.js* and requires jQuery. This hand
 All computer-generated moves in Single Player mode are made in *aimove.php*.
 
 ### Compatibility
-Tested with PHP Version 7.4.8
+Tested with PHP Version 7.4.8<br>
+May not appear correctly on Internet Explorer
 
 ### Assets
 #### Animations
