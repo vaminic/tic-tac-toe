@@ -55,21 +55,19 @@ $(document).ready(function(){
 		$(".tile").css("pointer-events", "none"); // disable pointer events while the grid is redrawn
 		$("#grid").css("animation", "erase 400ms linear forwards");
 		setTimeout(function(){
-			
 			$(".tile").attr("status", "empty");
 			$(".tile").attr("class", "tile");
 			$("#grid").css("animation", "draw-grid 1000ms linear forwards");
 			$("#grid").css("opacity", "100%");
 			setTimeout(function(){
 				$("#main-info").text("Turn:");
-				// reenable turn tracker 
-				setFirstMove();
-				$(".tile").css("pointer-events", "auto"); // reenable pointer events after the grid is redrawn
-				if ($("#spMode").attr("status")){
-					if ($("#turn-tracker").text() == "O"){
-							computerMove();
-					}
+				setFirstMove(); // reenable turn tracker 
+				if ($("#spMode").attr("status") == "selected" && $("#turn-tracker").text() == "O"){
+					computerMove();
 				}
+				setTimeout(function(){
+					$(".tile").css("pointer-events", "auto"); // reenable pointer events after the grid is redrawn
+				}, 100);
 			}, 1000);
 		}, 500);
 	});
