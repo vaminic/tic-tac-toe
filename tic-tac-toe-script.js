@@ -336,5 +336,104 @@ $(document).ready(function(){
 			};
 		getMove();
 	}
+
+	// Preload all animation frames //
+	function preloadFrames(){
+		// x animation frames
+		new Image().src = "animations/x-draw-animation/x-draw-1.png";
+		new Image().src = "animations/x-draw-animation/x-draw-2.png";
+		new Image().src = "animations/x-draw-animation/x-draw-3.png";
+		new Image().src = "animations/x-draw-animation/x-draw-4.png";
+		new Image().src = "animations/x-draw-animation/x-draw-5.png";
+		new Image().src = "animations/x-draw-animation/x-draw-6.png";
+		new Image().src = "animations/x-draw-animation/x-draw-7.png";
+		new Image().src = "animations/x-draw-animation/x-draw-8.png";
+		new Image().src = "animations/x-draw-animation/x-draw-9.png";
+		new Image().src = "animations/x-draw-animation/x-draw-10.png";
+		new Image().src = "animations/x-draw-animation/x-draw-11.png";
+		new Image().src = "animations/x-draw-animation/x-draw-12.png";
+		new Image().src = "animations/x-draw-animation/x-draw-13.png";
+		new Image().src = "animations/x-draw-animation/x-draw-14.png";
+		new Image().src = "animations/x-draw-animation/x-draw-15.png";
+		// o animation frames
+		new Image().src = "animations/o-draw-animation/o-draw-1.png";
+		new Image().src = "animations/o-draw-animation/o-draw-2.png";
+		new Image().src = "animations/o-draw-animation/o-draw-3.png";
+		new Image().src = "animations/o-draw-animation/o-draw-4.png";
+		new Image().src = "animations/o-draw-animation/o-draw-5.png";
+		new Image().src = "animations/o-draw-animation/o-draw-6.png";
+		new Image().src = "animations/o-draw-animation/o-draw-7.png";
+		new Image().src = "animations/o-draw-animation/o-draw-8.png";
+		new Image().src = "animations/o-draw-animation/o-draw-9.png";
+		new Image().src = "animations/o-draw-animation/o-draw-10.png";
+		new Image().src = "animations/o-draw-animation/o-draw-11.png";
+		new Image().src = "animations/o-draw-animation/o-draw-12.png";
+		new Image().src = "animations/o-draw-animation/o-draw-13.png";
+		new Image().src = "animations/o-draw-animation/o-draw-14.png";
+		new Image().src = "animations/o-draw-animation/o-draw-15.png";
+		// grid animation frames
+		new Image().src = "animations/grid-draw-animation/draw-grid-f1.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f2.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f3.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f4.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f5.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f6.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f7.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f8.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f9.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f10.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f11.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f12.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f13.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f14.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f15.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f16.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f17.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f18.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f19.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f20.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f21.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f22.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f23.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f24.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f25.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f26.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f27.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f28.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f29.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f30.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f31.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f32.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f33.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f34.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f35.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f36.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f37.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f38.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f39.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f40.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f41.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f42.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f43.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f44.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f45.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f46.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f47.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f48.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f49.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f50.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f51.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f52.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f53.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f54.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f55.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f56.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f57.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f58.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f59.png";
+		new Image().src = "animations/grid-draw-animation/draw-grid-f60.png";
+	}
+
+	preloadFrames();
 });
 
