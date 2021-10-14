@@ -35,10 +35,10 @@ $(document).ready(function(){
 				$(".tile").css("pointer-events", "none"); // disable pointer events while the AI makes a turn
 				setTimeout(function() {
 					computerMove();
-				}, 450);
+				}, 400);
 				setTimeout(function() { 
 					$(".tile").css("pointer-events", "auto"); //re-enable pointer events
-				}, 450);
+				}, 420);
 			}
 		} else if (turn == "O" && state == "empty"){ // Confirm tile is empty and O's turn 
 			$(this).removeClass("preview-o");
