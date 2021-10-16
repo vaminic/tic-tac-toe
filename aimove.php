@@ -1,6 +1,6 @@
 <?php
 	$gridData = $_POST["data"];
-	$murpheysLaw = rand(0,3); // artificial mistake chance
+	$murphysLaw = rand(0,3); // artificial mistake chance
 	
 	if ($gridData[0] == "empty" && $gridData[1] == "empty" 
 		&& $gridData[2] == "empty" && $gridData[3] == "empty" 
@@ -58,7 +58,7 @@
 			echo "#tile1";
 		} else {
 			$block = checkPerimeterForThreat();
-			if ($murpheysLaw == 0){
+			if ($murphysLaw == 0){
 				makeMistake();
 			} elseif (isset($block)){
 				echo $block;
@@ -300,7 +300,7 @@
 			echo "#tile1";
 		}else {
 			$block = checkPerimeterForThreat();
-			if ($murpheysLaw == 0){
+			if ($murphysLaw == 0){
 				makeMistake();
 			} elseif (isset($block)){
 				echo $block;
