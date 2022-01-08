@@ -22,7 +22,7 @@ May not appear correctly on Internet Explorer
 
 ### Assets
 #### Animations
-The "animations" directory contain all animations.<br>
+The "animations" directory contains all animations.<br>
 This contains subdirectories, containing image files that serve as frames, for each animation.<br>
 <br>
 All images used in this project are strictly my own works or under Creative Commons Licenses.<br>
