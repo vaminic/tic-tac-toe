@@ -27,4 +27,4 @@ This contains subdirectories, containing image files that serve as frames, for e
 <br>
 All images used in this project are strictly my own works or under Creative Commons Licenses.<br>
 Background image used (*paper-texture-structure-stained-paper.jpg*) is under Creative Commons License.<br>
-Big thanks to <a href="https://putracetol.com/" target="_blank">PutraCetol Studio</a> for creating <a href="https://www.dafont.com/handodle.font" target="_blank">Handodle Font</a>.
+Credit to <a href="https://putracetol.com/" target="_blank">PutraCetol Studio</a> for creating <a href="https://www.dafont.com/handodle.font" target="_blank">Handodle Font</a>.
