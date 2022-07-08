@@ -1,6 +1,6 @@
 <?php
 	$gridData = $_POST["data"];
-	$murphysLaw = rand(0,3); // artificial mistake chance
+	$murphysLaw = rand(0,3); // artificial blunder chance
 	
 	if ($gridData[0] == "empty" && $gridData[1] == "empty" 
 		&& $gridData[2] == "empty" && $gridData[3] == "empty" 
@@ -25,7 +25,7 @@
 				echo "#tile5";
 				break;
 		}
-	}elseif ($gridData[4] == "empty"){
+	} elseif ($gridData[4] == "empty"){
 		$winMove = checkPerimeterForWin();
 		$block = checkPerimeterForThreat();
 		if (isset($winMove)){
@@ -116,7 +116,7 @@
 						{
 					echo "#tile9";
 				// Prefer Moves where a Fork can be made:
-				}elseif ($gridData[7] == "empty" && $gridData[1] == "empty"
+				} elseif ($gridData[7] == "empty" && $gridData[1] == "empty"
 						&& (($gridData[6] == "O" && $gridData[8] == "empty")
 						|| ($gridData[6] == "empty" && $gridData[8] == "O")))
 						{
@@ -167,7 +167,7 @@
 						|| ($gridData[2] == "empty" && $gridData[5] == "O"))))
 						{
 					echo "#tile3";
-				}elseif ($gridData[0] == "empty" 
+				} elseif ($gridData[0] == "empty" 
 						&& (($gridData[1] == "O" && $gridData[2] == "empty")
 						|| ($gridData[1] == "empty" && $gridData[2] == "O"))
 						&& (($gridData[3] == "O" && $gridData[6] == "empty")
@@ -298,7 +298,7 @@
 			echo "#tile2";
 		} elseif ($gridData[8] == "X" && $gridData[0] == "empty"){
 			echo "#tile1";
-		}else {
+		} else {
 			$block = checkPerimeterForThreat();
 			if ($murphysLaw == 0){
 				makeMistake();
